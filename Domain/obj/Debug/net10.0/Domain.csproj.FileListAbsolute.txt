@@ -1,0 +1,15 @@
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/bin/Debug/net10.0/Domain.deps.json
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/bin/Debug/net10.0/Domain.dll
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/bin/Debug/net10.0/Domain.pdb
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/bin/Debug/net10.0/SharedKernel.dll
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/bin/Debug/net10.0/SharedKernel.pdb
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/obj/Debug/net10.0/Domain.csproj.AssemblyReference.cache
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/obj/Debug/net10.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/obj/Debug/net10.0/Domain.AssemblyInfoInputs.cache
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/obj/Debug/net10.0/Domain.AssemblyInfo.cs
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/obj/Debug/net10.0/Domain.csproj.CoreCompileInputs.cache
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/obj/Debug/net10.0/Domain.csproj.Up2Date
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/obj/Debug/net10.0/Domain.dll
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/obj/Debug/net10.0/refint/Domain.dll
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/obj/Debug/net10.0/Domain.pdb
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/obj/Debug/net10.0/ref/Domain.dll

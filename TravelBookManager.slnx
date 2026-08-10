@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/Application/">
+    <Project Path="Application/TravelBookManager.Application.csproj" />
+  </Folder>
+  <Folder Name="/Domain/">
+    <Project Path="Domain/TravelBookManager.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="Infrastructure/TravelBookManager.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/Presentation/">
+    <Project Path="Presentation/TravelBookManager.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/SharedKernel/">
+    <Project Path="SharedKernel/TravelBookManager.SharedKernel.csproj" />
+  </Folder>
+</Solution>

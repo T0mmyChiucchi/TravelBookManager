@@ -1,0 +1,17 @@
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/bin/Debug/net10.0/Application.deps.json
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/bin/Debug/net10.0/Application.dll
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/bin/Debug/net10.0/Application.pdb
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/bin/Debug/net10.0/Domain.dll
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/bin/Debug/net10.0/SharedKernel.dll
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/bin/Debug/net10.0/Domain.pdb
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/bin/Debug/net10.0/SharedKernel.pdb
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/obj/Debug/net10.0/Application.csproj.AssemblyReference.cache
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/obj/Debug/net10.0/Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/obj/Debug/net10.0/Application.AssemblyInfoInputs.cache
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/obj/Debug/net10.0/Application.AssemblyInfo.cs
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/obj/Debug/net10.0/Application.csproj.CoreCompileInputs.cache
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/obj/Debug/net10.0/Applicat.44B5EDA2.Up2Date
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/obj/Debug/net10.0/Application.dll
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/obj/Debug/net10.0/refint/Application.dll
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/obj/Debug/net10.0/Application.pdb
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/obj/Debug/net10.0/ref/Application.dll
