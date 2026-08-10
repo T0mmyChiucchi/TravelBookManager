@@ -1,29 +1,30 @@
-namespace Travel_Book_Manager.Domain.Entities;
+using Travel_Book_Manager.SharedKernel;
 
-public class User
+namespace Travel_Book_Manager.Domain.Entities
 {
-    public Guid Id { get; set; }
-    public string Name { get; set; }
-    public List<Trip> SavedTrips { get; set; }
-    // Value Objects
-    public string Email { get; set; }
-    public string Username { get; set; }
-    public string Password { get; set; }
-
-    public User(string name, string email, string username, string password)
+    public class User : Entity
     {
-        Id = Guid.NewGuid();
-        Name = name;
-        Email = email;
-        SavedTrips = new();
+        public string Name { get; set; }
+        public List<Trip> SavedTrips { get; set; }
+        // Value Objects
+        public string Email { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
 
-        Username = username;
-        Password = password;
+        public User(string name, string email, string username, string password)
+        {
+            Name = name;
+            Email = email;
+            SavedTrips = new();
+
+            Username = username;
+            Password = password;
+        }
+
+        public void AddItinerary(Trip trip)
+        {
+            SavedTrips.Add(trip);
+        }
+
     }
-
-    public void AddItinerary(Trip trip)
-    {
-        SavedTrips.Add(trip);
-    }
-
 }

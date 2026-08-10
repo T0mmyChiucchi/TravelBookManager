@@ -1,24 +1,25 @@
-namespace Travel_Book_Manager.Domain.Entities;
+using Travel_Book_Manager.SharedKernel;
 
-public class Trip
+namespace Travel_Book_Manager.Domain.Entities
 {
-    public Guid Id { get; set; }
-    public string Name { get; set; }
-    public List<Location> Locations { get; set; }
-    public string OptimizedRoute { get; set; }
-    public double TotalDistance { get; set; }
-
-    public Trip(string name)
+    public class Trip : Entity
     {
-        Id = Guid.NewGuid();
-        Name = name;
-        Locations = new();
-        OptimizedRoute = string.Empty;
-        TotalDistance = 0.0;
-    }
+        public string Name { get; set; }
+        public List<Location> Locations { get; set; }
+        public string OptimizedRoute { get; set; }
+        public double TotalDistance { get; set; }
 
-    public void AddLocation(Location location)
-    {
-        Locations.Add(location);
+        public Trip(string name)
+        {
+            Name = name;
+            Locations = new();
+            OptimizedRoute = string.Empty;
+            TotalDistance = 0.0;
+        }
+
+        public void AddLocation(Location location)
+        {
+            Locations.Add(location);
+        }
     }
 }
