@@ -1,0 +1,8 @@
+# Tell GitHub Linguist to detect this as a C# / MAUI project
+*.cs linguist-language=C#
+*.xaml linguist-language=XML
+
+# Exclude generated/vendored files from language stats
+*.g.cs linguist-generated=true
+*.AssemblyInfo.cs linguist-generated=true
+Resources/Raw/** linguist-vendored=true
