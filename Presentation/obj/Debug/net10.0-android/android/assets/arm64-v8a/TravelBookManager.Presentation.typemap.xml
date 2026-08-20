@@ -1,0 +1,10 @@
+<api type="debug" assembly-name="TravelBookManager.Presentation" mvid="183af262000b4d3aa1439870dee6bf3c">
+  <java-to-managed>
+    <entry java-name="crc64ec73d206ea8e3852/MainActivity" managed-name="TravelBookManager.Presentation.MainActivity, TravelBookManager.Presentation" managed-type-token-id="33554441" />
+    <entry java-name="crc64ec73d206ea8e3852/MainApplication" managed-name="TravelBookManager.Presentation.MainApplication, TravelBookManager.Presentation" managed-type-token-id="33554442" />
+  </java-to-managed>
+  <managed-to-java>
+    <entry java-name="crc64ec73d206ea8e3852/MainActivity" managed-name="TravelBookManager.Presentation.MainActivity, TravelBookManager.Presentation" managed-type-token-id="33554441" />
+    <entry java-name="crc64ec73d206ea8e3852/MainApplication" managed-name="TravelBookManager.Presentation.MainApplication, TravelBookManager.Presentation" managed-type-token-id="33554442" />
+  </managed-to-java>
+</api>

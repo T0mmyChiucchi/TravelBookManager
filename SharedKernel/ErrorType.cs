@@ -1,4 +1,4 @@
-namespace Travel_Book_Manager.SharedKernel
+namespace TravelBookManager.SharedKernel
 {
     public enum ErrorType
     {

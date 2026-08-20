@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug: Android",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+      "target": "net10.0-android",
+      "env": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "Debug: iOS (Simulator)",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+      "target": "net10.0-ios",
+      "env": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "Debug: MacCatalyst",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+      "target": "net10.0-maccatalyst",
+      "env": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  ]
+}

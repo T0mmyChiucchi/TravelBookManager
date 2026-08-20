@@ -2,28 +2,28 @@
   "version": 3,
   "targets": {
     "net10.0": {
-      "SharedKernel/1.0.0": {
+      "TravelBookManager.SharedKernel/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
-          "bin/placeholder/SharedKernel.dll": {}
+          "bin/placeholder/TravelBookManager.SharedKernel.dll": {}
         },
         "runtime": {
-          "bin/placeholder/SharedKernel.dll": {}
+          "bin/placeholder/TravelBookManager.SharedKernel.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "SharedKernel/1.0.0": {
+    "TravelBookManager.SharedKernel/1.0.0": {
       "type": "project",
-      "path": "../SharedKernel/SharedKernel.csproj",
-      "msbuildProject": "../SharedKernel/SharedKernel.csproj"
+      "path": "../SharedKernel/TravelBookManager.SharedKernel.csproj",
+      "msbuildProject": "../SharedKernel/TravelBookManager.SharedKernel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "SharedKernel >= 1.0.0"
+      "TravelBookManager.SharedKernel >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -32,9 +32,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/Domain.csproj",
-      "projectName": "Domain",
-      "projectPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/Domain.csproj",
+      "projectUniqueName": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/TravelBookManager.Domain.csproj",
+      "projectName": "TravelBookManager.Domain",
+      "projectPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/TravelBookManager.Domain.csproj",
       "packagesPath": "/Users/quake/.nuget/packages/",
       "outputPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Domain/obj/",
       "projectStyle": "PackageReference",
@@ -52,8 +52,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/SharedKernel.csproj": {
-              "projectPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/SharedKernel.csproj"
+            "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/TravelBookManager.SharedKernel.csproj": {
+              "projectPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/TravelBookManager.SharedKernel.csproj"
             }
           }
         }

@@ -1,9 +1,12 @@
-using Travel_Book_Manager.SharedKernel.ValueObject;
+using TravelBookManager.SharedKernel;
 
-namespace Travel_Book_Manager.Domain.ValueObjects
+namespace TravelBookManager.Domain.ValueObjects
 {
-    public class Coordinates: ValueObject
+    public class Coordinates : ValueObject
     {
-        
+        protected override IEnumerable<object> GetAtomicValues()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

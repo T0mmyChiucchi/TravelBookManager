@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace Travel_Book_Manager.SharedKernel
+namespace TravelBookManager.SharedKernel
 {
     public class Result
     {

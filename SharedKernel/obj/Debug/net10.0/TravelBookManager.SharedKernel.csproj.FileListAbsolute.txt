@@ -1,0 +1,12 @@
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/bin/Debug/net10.0/TravelBookManager.SharedKernel.deps.json
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/bin/Debug/net10.0/TravelBookManager.SharedKernel.dll
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/bin/Debug/net10.0/TravelBookManager.SharedKernel.pdb
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/obj/Debug/net10.0/TravelBookManager.SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/obj/Debug/net10.0/TravelBookManager.SharedKernel.AssemblyInfoInputs.cache
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/obj/Debug/net10.0/TravelBookManager.SharedKernel.AssemblyInfo.cs
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/obj/Debug/net10.0/TravelBookManager.SharedKernel.csproj.CoreCompileInputs.cache
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/obj/Debug/net10.0/TravelBookManager.SharedKernel.sourcelink.json
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/obj/Debug/net10.0/TravelBookManager.SharedKernel.dll
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/obj/Debug/net10.0/refint/TravelBookManager.SharedKernel.dll
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/obj/Debug/net10.0/TravelBookManager.SharedKernel.pdb
+/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/obj/Debug/net10.0/ref/TravelBookManager.SharedKernel.dll

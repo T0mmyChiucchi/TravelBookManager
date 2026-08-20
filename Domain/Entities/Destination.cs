@@ -1,6 +1,6 @@
-using Travel_Book_Manager.SharedKernel;
+using TravelBookManager.SharedKernel;
 
-namespace Travel_Book_Manager.Domain.Entities
+namespace TravelBookManager.Domain.Entities
 {
     public class Destination : Entity
     {

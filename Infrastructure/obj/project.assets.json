@@ -2,66 +2,66 @@
   "version": 3,
   "targets": {
     "net10.0": {
-      "Application/1.0.0": {
+      "TravelBookManager.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
-          "Domain": "1.0.0",
-          "SharedKernel": "1.0.0"
+          "TravelBookManager.Domain": "1.0.0",
+          "TravelBookManager.SharedKernel": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/Application.dll": {}
+          "bin/placeholder/TravelBookManager.Application.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Application.dll": {}
+          "bin/placeholder/TravelBookManager.Application.dll": {}
         }
       },
-      "Domain/1.0.0": {
+      "TravelBookManager.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
-          "SharedKernel": "1.0.0"
+          "TravelBookManager.SharedKernel": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/Domain.dll": {}
+          "bin/placeholder/TravelBookManager.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Domain.dll": {}
+          "bin/placeholder/TravelBookManager.Domain.dll": {}
         }
       },
-      "SharedKernel/1.0.0": {
+      "TravelBookManager.SharedKernel/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
-          "bin/placeholder/SharedKernel.dll": {}
+          "bin/placeholder/TravelBookManager.SharedKernel.dll": {}
         },
         "runtime": {
-          "bin/placeholder/SharedKernel.dll": {}
+          "bin/placeholder/TravelBookManager.SharedKernel.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "Application/1.0.0": {
+    "TravelBookManager.Application/1.0.0": {
       "type": "project",
-      "path": "../Application/Application.csproj",
-      "msbuildProject": "../Application/Application.csproj"
+      "path": "../Application/TravelBookManager.Application.csproj",
+      "msbuildProject": "../Application/TravelBookManager.Application.csproj"
     },
-    "Domain/1.0.0": {
+    "TravelBookManager.Domain/1.0.0": {
       "type": "project",
-      "path": "../Domain/Domain.csproj",
-      "msbuildProject": "../Domain/Domain.csproj"
+      "path": "../Domain/TravelBookManager.Domain.csproj",
+      "msbuildProject": "../Domain/TravelBookManager.Domain.csproj"
     },
-    "SharedKernel/1.0.0": {
+    "TravelBookManager.SharedKernel/1.0.0": {
       "type": "project",
-      "path": "../SharedKernel/SharedKernel.csproj",
-      "msbuildProject": "../SharedKernel/SharedKernel.csproj"
+      "path": "../SharedKernel/TravelBookManager.SharedKernel.csproj",
+      "msbuildProject": "../SharedKernel/TravelBookManager.SharedKernel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "Application >= 1.0.0",
-      "SharedKernel >= 1.0.0"
+      "TravelBookManager.Application >= 1.0.0",
+      "TravelBookManager.SharedKernel >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -70,9 +70,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Infrastructure/Infrastructure.csproj",
-      "projectName": "Infrastructure",
-      "projectPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Infrastructure/Infrastructure.csproj",
+      "projectUniqueName": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Infrastructure/TravelBookManager.Infrastructure.csproj",
+      "projectName": "TravelBookManager.Infrastructure",
+      "projectPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Infrastructure/TravelBookManager.Infrastructure.csproj",
       "packagesPath": "/Users/quake/.nuget/packages/",
       "outputPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Infrastructure/obj/",
       "projectStyle": "PackageReference",
@@ -90,11 +90,11 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/Application.csproj": {
-              "projectPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/Application.csproj"
+            "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/TravelBookManager.Application.csproj": {
+              "projectPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/Application/TravelBookManager.Application.csproj"
             },
-            "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/SharedKernel.csproj": {
-              "projectPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/SharedKernel.csproj"
+            "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/TravelBookManager.SharedKernel.csproj": {
+              "projectPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/TravelBookManager.SharedKernel.csproj"
             }
           }
         }

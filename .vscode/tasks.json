@@ -1,0 +1,141 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build: Android",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "-f", "net10.0-android",
+        "-c", "Debug"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build",
+      "presentation": { "reveal": "silent" }
+    },
+    {
+      "label": "build: iOS",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "-f", "net10.0-ios",
+        "-c", "Debug"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build",
+      "presentation": { "reveal": "silent" }
+    },
+    {
+      "label": "build: MacCatalyst",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "-f", "net10.0-maccatalyst",
+        "-c", "Debug"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build",
+      "presentation": { "reveal": "silent" }
+    },
+    {
+      "label": "build: Windows",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "-f", "net10.0-windows10.0.19041.0",
+        "-c", "Debug"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build",
+      "presentation": { "reveal": "silent" }
+    },
+    {
+      "label": "publish: Android",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "publish",
+        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "-f", "net10.0-android",
+        "-c", "Release"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build"
+    },
+    {
+      "label": "publish: iOS",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "publish",
+        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "-f", "net10.0-ios",
+        "-c", "Release"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build"
+    },
+    {
+      "label": "publish: MacCatalyst",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "publish",
+        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "-f", "net10.0-maccatalyst",
+        "-c", "Release"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build"
+    },
+    {
+      "label": "restore: solution",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "restore",
+        "${workspaceFolder}/TravelBookManager.slnx"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build",
+      "presentation": { "reveal": "silent" }
+    },
+    {
+      "label": "clean: solution",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "clean",
+        "${workspaceFolder}/TravelBookManager.slnx"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build",
+      "presentation": { "reveal": "silent" }
+    },
+    {
+      "label": "install: Android SDK dependencies (API 36)",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "-f", "net10.0-android",
+        "-t:InstallAndroidDependencies",
+        "-p:AndroidSdkDirectory=${env:HOME}/Library/Developer/Xamarin/android-sdk-macosx",
+        "-p:AndroidNdkDirectory=${env:HOME}/Library/Developer/Xamarin/android-sdk-macosx/ndk-bundles",
+        "-p:AcceptAndroidSDKLicenses=True"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build",
+      "presentation": { "reveal": "always", "panel": "new" }
+    }
+  ]
+}

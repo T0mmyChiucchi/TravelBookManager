@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "TravelBookManager.Domain/1.0.0": {
+        "dependencies": {
+          "TravelBookManager.SharedKernel": "1.0.0"
+        },
+        "runtime": {
+          "TravelBookManager.Domain.dll": {}
+        }
+      },
+      "TravelBookManager.SharedKernel/1.0.0": {
+        "runtime": {
+          "TravelBookManager.SharedKernel.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TravelBookManager.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TravelBookManager.SharedKernel/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

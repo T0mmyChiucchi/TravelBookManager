@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/SharedKernel.csproj",
-      "projectName": "SharedKernel",
-      "projectPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/SharedKernel.csproj",
+      "projectUniqueName": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/TravelBookManager.SharedKernel.csproj",
+      "projectName": "TravelBookManager.SharedKernel",
+      "projectPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/TravelBookManager.SharedKernel.csproj",
       "packagesPath": "/Users/quake/.nuget/packages/",
       "outputPath": "/Users/quake/Desktop/Antigravity - App/Travel Book Manager/SharedKernel/obj/",
       "projectStyle": "PackageReference",

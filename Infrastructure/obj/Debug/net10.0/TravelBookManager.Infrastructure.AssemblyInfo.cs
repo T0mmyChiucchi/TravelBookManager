@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TravelBookManager.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a4716785d78140708ef2ef3c0ad965db72a05dc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1954000a8ee2ca84fd9eacd1ea05a5fb173bc7c")]
 [assembly: System.Reflection.AssemblyProductAttribute("TravelBookManager.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TravelBookManager.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
