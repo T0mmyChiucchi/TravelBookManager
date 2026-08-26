@@ -1,3 +1,4 @@
+using TravelBookManager.Domain.ValueObjects;
 using TravelBookManager.SharedKernel;
 
 namespace TravelBookManager.Domain.Entities
@@ -6,19 +7,19 @@ namespace TravelBookManager.Domain.Entities
     {
         public string DepartureAirport { get; set; }
         public string ArrivalAirport { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public decimal Price { get; set; }
         public string Airline { get; set; }
 
-        public Flight(string departure, string arrival, DateTime start, DateTime end, decimal price, string airLine)
+        //Value objects
+        public DateRange FlightDateRange { get; set; }
+        public Price FlightPrice { get; set; }
+
+        public Flight(string departure, string arrival, DateTime start, DateTime end, string airLine, string currency, decimal value)
         {
             DepartureAirport = departure;
             ArrivalAirport = arrival;
-            StartDate = start;
-            EndDate = end;
-            Price = price;
             Airline = airLine;
+            FlightDateRange = DateRange.Create(start, end);
+            FlightPrice = Price.Create(currency, value);
         }
     }
 }

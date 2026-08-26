@@ -6,7 +6,6 @@ namespace TravelBookManager.Domain.Entities
     {
         public string Name { get; set; }
         public List<Trip> SavedTrips { get; set; }
-        // Value Objects
         public string Email { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }

@@ -1,3 +1,4 @@
+using TravelBookManager.Domain.ValueObjects;
 using TravelBookManager.SharedKernel;
 
 namespace TravelBookManager.Domain.Entities
@@ -8,16 +9,15 @@ namespace TravelBookManager.Domain.Entities
     {
         public string Name { get; set; }
         public LocationType Type { get; set; }
-        //Value Objects
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
+
+        //Value Object
+        public Coordinates GeoCoordinates { get; set; }
 
         public Location(string name, LocationType type, double lati, double longi)
         {
             Name = name;
             Type = type;
-            Latitude = lati;
-            Longitude = longi;
+            GeoCoordinates = Coordinates.Create(lati, longi);
         }
     }
 }

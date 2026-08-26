@@ -1,12 +1,19 @@
-using TravelBookManager.SharedKernel;
-
 namespace TravelBookManager.Domain.ValueObjects
 {
-    public class Coordinates : ValueObject
+    public sealed record Coordinates
     {
-        protected override IEnumerable<object> GetAtomicValues()
+        public double Longitude { get; }
+        public double Latitude { get; }
+
+        private Coordinates(double lati, double longi)
         {
-            throw new NotImplementedException();
+            Latitude = lati;
+            Longitude = longi;
+        }
+
+        public static Coordinates Create(double lati, double longi)
+        {
+            return new Coordinates(lati, longi);
         }
     }
 }
