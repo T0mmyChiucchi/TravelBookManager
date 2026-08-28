@@ -1,3 +1,4 @@
+using TravelBookManager.Domain.Events;
 using TravelBookManager.SharedKernel;
 
 namespace TravelBookManager.Domain.Entities
@@ -18,6 +19,7 @@ namespace TravelBookManager.Domain.Entities
 
             Username = username;
             Password = password;
+            Raise(new UserRegisteredEvent(Id, Email));
         }
 
         public void AddItinerary(Trip trip)

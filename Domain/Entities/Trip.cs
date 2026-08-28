@@ -1,3 +1,4 @@
+using TravelBookManager.Domain.Events;
 using TravelBookManager.SharedKernel;
 
 namespace TravelBookManager.Domain.Entities
@@ -15,6 +16,7 @@ namespace TravelBookManager.Domain.Entities
             Locations = new();
             OptimizedRoute = string.Empty;
             TotalDistance = 0.0;
+            Raise(new TripPlannedEvent(Id, Name));
         }
 
         public void AddLocation(Location location)
