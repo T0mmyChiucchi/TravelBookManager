@@ -1,3 +1,6 @@
+using TravelBookManager.Domain.Errors;
+using TravelBookManager.SharedKernel;
+
 namespace TravelBookManager.Domain.ValueObjects
 {
     public sealed record Price
@@ -11,9 +14,13 @@ namespace TravelBookManager.Domain.ValueObjects
             Value = value;
         }
 
-        public static Price Create(string currency, decimal value)
+        public static Result<Price> Create(string currency, decimal value)
         {
-            return new Price(currency, value);
+            if (string.IsNullOrWhiteSpace(currency))
+                return Result<Price>.ValidationFailure(ValueObjectsErrors.EmptyCurrency);
+            if (value < 0)
+                return Result<Price>.ValidationFailure(ValueObjectsErrors.NegativeValue);
+            return Result.Success(new Price(currency, value));
         }
     }
 }

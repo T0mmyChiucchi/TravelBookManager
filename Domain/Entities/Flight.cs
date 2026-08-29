@@ -1,3 +1,4 @@
+using TravelBookManager.Domain.Errors;
 using TravelBookManager.Domain.ValueObjects;
 using TravelBookManager.SharedKernel;
 
@@ -13,13 +14,32 @@ namespace TravelBookManager.Domain.Entities
         public DateRange FlightDateRange { get; set; }
         public Price FlightPrice { get; set; }
 
-        public Flight(string departure, string arrival, DateTime start, DateTime end, string airLine, string currency, decimal value)
+        private Flight(string departure, string arrival, DateRange dateRange, string airLine, Price price)
         {
             DepartureAirport = departure;
             ArrivalAirport = arrival;
             Airline = airLine;
-            FlightDateRange = DateRange.Create(start, end);
-            FlightPrice = Price.Create(currency, value);
+            FlightDateRange = dateRange;
+            FlightPrice = price;
+        }
+
+        public static Result<Flight> Create(string departure, string arrival, DateTime start, DateTime end, string airLine, string currency, decimal value)
+        {
+            if (string.IsNullOrWhiteSpace(departure))
+                return Result<Flight>.ValidationFailure(FlightErrors.EmptyDeparture);
+            if (string.IsNullOrWhiteSpace(arrival))
+                return Result<Flight>.ValidationFailure(FlightErrors.EmptyArrival);
+            var dateRangeResult = DateRange.Create(start, end);
+            if (dateRangeResult.IsFailure)
+                return Result<Flight>.ValidationFailure(dateRangeResult.Error);
+            if (string.IsNullOrWhiteSpace(airLine))
+                return Result<Flight>.ValidationFailure(FlightErrors.EmptyAirline);
+            if (departure == arrival)
+                return Result<Flight>.ValidationFailure(FlightErrors.SameDepartureAndArrival);
+            var priceResult = Price.Create(currency, value);
+            if (priceResult.IsFailure)
+                return Result<Flight>.ValidationFailure(priceResult.Error);
+            return Result.Success(new Flight(departure, arrival, dateRangeResult.Value, airLine, priceResult.Value));
         }
     }
 }

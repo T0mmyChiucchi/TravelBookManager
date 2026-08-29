@@ -1,3 +1,4 @@
+using TravelBookManager.Domain.Errors;
 using TravelBookManager.Domain.ValueObjects;
 using TravelBookManager.SharedKernel;
 
@@ -12,12 +13,26 @@ namespace TravelBookManager.Domain.Entities
         //Value object
         public Coordinates GeoCoordinates { get; set; }
 
-        public Destination(string name, string country, double lati, double longi, double score)
+        private Destination(string name, string country, Coordinates coordinates, double score)
         {
             Name = name;
             Country = country;
-            GeoCoordinates = Coordinates.Create(lati, longi);
+            GeoCoordinates = coordinates;
             PopularityScore = score;
+        }
+
+        public static Result<Destination> Create(string name, string country, double lati, double longi, double score)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                return Result<Destination>.ValidationFailure(DestinationErrors.EmptyName);
+            if (string.IsNullOrWhiteSpace(country))
+                return Result<Destination>.ValidationFailure(DestinationErrors.EmptyCountry);
+            var coordinatesResult = Coordinates.Create(lati, longi);
+            if (coordinatesResult.IsFailure)
+                return Result<Destination>.ValidationFailure(coordinatesResult.Error);
+            if (score < 0)
+                return Result<Destination>.ValidationFailure(DestinationErrors.NegativePopularity);
+            return Result.Success(new Destination(name, country, coordinatesResult.Value, score));
         }
     }
 }

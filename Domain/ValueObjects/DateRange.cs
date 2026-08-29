@@ -1,3 +1,6 @@
+using TravelBookManager.Domain.Errors;
+using TravelBookManager.SharedKernel;
+
 namespace TravelBookManager.Domain.ValueObjects
 {
     public sealed record DateRange
@@ -11,9 +14,11 @@ namespace TravelBookManager.Domain.ValueObjects
             EndDate = end;
         }
 
-        public static DateRange Create(DateTime start, DateTime end)
+        public static Result<DateRange> Create(DateTime start, DateTime end)
         {
-            return new DateRange(start, end);
+            if (end < start)
+                return Result<DateRange>.ValidationFailure(ValueObjectsErrors.EndDateBeforeStartDate);
+            return Result.Success(new DateRange(start, end));
         }
     }
 }

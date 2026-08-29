@@ -1,3 +1,4 @@
+using TravelBookManager.Domain.Errors;
 using TravelBookManager.Domain.ValueObjects;
 using TravelBookManager.SharedKernel;
 
@@ -13,11 +14,21 @@ namespace TravelBookManager.Domain.Entities
         //Value Object
         public Coordinates GeoCoordinates { get; set; }
 
-        public Location(string name, LocationType type, double lati, double longi)
+        private Location(string name, LocationType type, Coordinates coordinates)
         {
             Name = name;
             Type = type;
-            GeoCoordinates = Coordinates.Create(lati, longi);
+            GeoCoordinates = coordinates;
+        }
+
+        public static Result<Location> Create(string name, LocationType type, double lati, double longi)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                return Result<Location>.ValidationFailure(LocationErrors.EmptyName);
+            var coordinatesResult = Coordinates.Create(lati, longi);
+            if (coordinatesResult.IsFailure)
+                return Result<Location>.ValidationFailure(coordinatesResult.Error);
+            return Result.Success(new Location(name, type, coordinatesResult.Value));
         }
     }
 }

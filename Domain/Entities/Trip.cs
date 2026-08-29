@@ -1,3 +1,4 @@
+using TravelBookManager.Domain.Errors;
 using TravelBookManager.Domain.Events;
 using TravelBookManager.SharedKernel;
 
@@ -10,7 +11,7 @@ namespace TravelBookManager.Domain.Entities
         public string OptimizedRoute { get; set; }
         public double TotalDistance { get; set; }
 
-        public Trip(string name)
+        private Trip(string name)
         {
             Name = name;
             Locations = new();
@@ -19,9 +20,21 @@ namespace TravelBookManager.Domain.Entities
             Raise(new TripPlannedEvent(Id, Name));
         }
 
-        public void AddLocation(Location location)
+        public static Result<Trip> Create(string name)
         {
+            if (string.IsNullOrWhiteSpace(name))
+                return Result<Trip>.ValidationFailure(TripErrors.EmptyName);
+            return Result.Success(new Trip(name));
+        }
+
+        public Result AddLocation(Location location)
+        {
+            if (location is null)
+                return Result.Failure(TripErrors.NullLocation);
+            if (Locations.Contains(location))
+                return Result.Failure(TripErrors.LocationAlreadyAdded);
             Locations.Add(location);
+            return Result.Success();
         }
     }
 }
