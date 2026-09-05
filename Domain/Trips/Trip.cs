@@ -5,7 +5,7 @@ using TravelBookManager.Domain.Trips.Events;
 
 namespace TravelBookManager.Domain.Trips
 {
-    public class Trip : Entity
+    public sealed class Trip : Entity
     {
         public string Name { get; set; }
         public List<Location> Locations { get; set; }

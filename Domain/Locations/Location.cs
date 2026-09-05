@@ -6,7 +6,7 @@ namespace TravelBookManager.Domain.Locations
 {
     public enum LocationType { Monument, Museum, Restaurant, Park, Other }
 
-    public class Location : Entity
+    public sealed class Location : Entity
     {
         public string Name { get; set; }
         public LocationType Type { get; set; }

@@ -2,71 +2,52 @@ using TravelBookManager.SharedKernel;
 using TravelBookManager.Domain.Trips;
 using TravelBookManager.Domain.Users.Errors;
 using TravelBookManager.Domain.Users.Events;
+using TravelBookManager.Domain.Shared.ValueObjects;
+using TravelBookManager.Domain.Users.ValueObjects;
 
 namespace TravelBookManager.Domain.Users
 {
-    public class User : Entity
+    public sealed class User : Entity
     {
-        public string Name { get; private set; }
-        public List<Trip> SavedTrips { get; private set; }
-        public string Email { get; private set; }
-        public string Username { get; private set; }
-        public string Password { get; private set; }
+        public Name Name { get; private set; }
+        private readonly List<Trip> _savedTrips = new();
+        public IReadOnlyCollection<Trip> SavedTrips => _savedTrips.AsReadOnly();
+        public Email Email { get; private set; }
+        public Username Username { get; private set; }
+        public Password Password { get; private set; }
 
-        private User(string name, string email, string username, string password)
+        private User(Name name, Email email, Username username, Password password)
         {
             Name = name;
             Email = email;
-            SavedTrips = new();
             Username = username;
             Password = password;
-            Raise(new UserRegisteredEvent(Id, Email));
+            Raise(new UserRegisteredEvent(Id, Email.Text));
         }
 
-        public static Result<User> Create(string name, string email, string username, string password)
+        public static Result<User> Create(Name name, Email email, Username username, Password password)
         {
-            if (string.IsNullOrWhiteSpace(name))
-                return Result<User>.ValidationFailure(UserErrors.EmptyName);
-            if (string.IsNullOrWhiteSpace(email))
-                return Result<User>.ValidationFailure(UserErrors.EmptyEmail);
-            if (string.IsNullOrWhiteSpace(username))
-                return Result<User>.ValidationFailure(UserErrors.EmptyUsername);
-            if (string.IsNullOrWhiteSpace(password))
-                return Result<User>.ValidationFailure(UserErrors.EmptyPassword);
-            if (password.Length < 8)
-                return Result<User>.ValidationFailure(UserErrors.PasswordTooShort);
             return Result.Success(new User(name, email, username, password));
-
         }
 
 
-        public Result ChangeEmail(string newEmail)
+        public Result ChangeEmail(Email newEmail)
         {
-            if (string.IsNullOrWhiteSpace(newEmail))
-                return Result.Failure(UserErrors.EmptyEmail);
             Email = newEmail;
-            Raise(new UserEmailChangedEvent(Id, newEmail));
+            Raise(new UserEmailChangedEvent(Id, newEmail.Text));
             return Result.Success();
         }
 
-        public Result UpdateBasicInfo(string newName, string newUsername)
+        public Result UpdateBasicInfo(Name newName, Username newUsername)
         {
-            if (string.IsNullOrWhiteSpace(newName))
-                return Result.Failure(UserErrors.EmptyName);
-            if (string.IsNullOrWhiteSpace(newUsername))
-                return Result.Failure(UserErrors.EmptyUsername);
             Name = newName;
             Username = newUsername;
-            Raise(new UserBasicInfoUpdatedEvent(Id, newName, newUsername));
+            Raise(new UserBasicInfoUpdatedEvent(Id, newName.Text, newUsername.Text));
             return Result.Success();
         }
 
-        public Result ChangePassword(string newPassword)
+        public Result ChangePassword(Password newPassword)
         {
-            if (string.IsNullOrWhiteSpace(newPassword))
-                return Result.Failure(UserErrors.EmptyPassword);
-            if (newPassword.Length < 8)
-                return Result.Failure(UserErrors.PasswordTooShort);
             Password = newPassword;
             Raise(new UserPasswordChangedEvent(Id));
             return Result.Success();
@@ -78,9 +59,18 @@ namespace TravelBookManager.Domain.Users
                 return Result.Failure(UserErrors.NullTrip);
             if (SavedTrips.Contains(trip))
                 return Result.Failure(UserErrors.TripAlreadySaved);
-            SavedTrips.Add(trip);
+            _savedTrips.Add(trip);
             return Result.Success();
         }
 
+        public Result RemoveItinerary(Trip trip)
+        {
+            if (trip is null)
+                return Result.Failure(UserErrors.NullTrip);
+            if (!_savedTrips.Contains(trip))
+                return Result.Failure(UserErrors.TripNotFound);
+            _savedTrips.Remove(trip);
+            return Result.Success();
+        }
     }
 }

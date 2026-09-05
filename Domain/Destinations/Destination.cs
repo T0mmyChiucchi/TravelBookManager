@@ -4,7 +4,7 @@ using TravelBookManager.Domain.Shared.ValueObjects;
 
 namespace TravelBookManager.Domain.Destinations
 {
-    public class Destination : Entity
+    public sealed class Destination : Entity
     {
         public string Name { get; set; }
         public string Country { get; set; }
