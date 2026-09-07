@@ -2,39 +2,62 @@ using TravelBookManager.SharedKernel;
 using TravelBookManager.Domain.Locations;
 using TravelBookManager.Domain.Trips.Errors;
 using TravelBookManager.Domain.Trips.Events;
+using TravelBookManager.Domain.Shared.ValueObjects;
+using TravelBookManager.Domain.Trips.ValueObjects;
 
 namespace TravelBookManager.Domain.Trips
 {
     public sealed class Trip : Entity
     {
-        public string Name { get; set; }
-        public List<Location> Locations { get; set; }
-        public string OptimizedRoute { get; set; }
-        public double TotalDistance { get; set; }
+        public Name Name { get; private set; }
+        private readonly List<Location> _locations = new();
+        public IReadOnlyCollection<Location> Locations => _locations.AsReadOnly();
+        public RouteInfo TripRouteInfo { get; private set; }
 
-        private Trip(string name)
+        private Trip(Name name)
         {
             Name = name;
-            Locations = new();
-            OptimizedRoute = string.Empty;
-            TotalDistance = 0.0;
-            Raise(new TripPlannedEvent(Id, Name));
+            TripRouteInfo = RouteInfo.Empty();
+            Raise(new TripPlannedEvent(Id, Name.Text));
         }
 
-        public static Result<Trip> Create(string name)
-        {
-            if (string.IsNullOrWhiteSpace(name))
-                return Result<Trip>.ValidationFailure(TripErrors.EmptyName);
-            return Result.Success(new Trip(name));
-        }
+        public static Result<Trip> Create(Name name) => Result.Success(new Trip(name));
 
         public Result AddLocation(Location location)
         {
             if (location is null)
                 return Result.Failure(TripErrors.NullLocation);
-            if (Locations.Contains(location))
+            if (_locations.Contains(location))
                 return Result.Failure(TripErrors.LocationAlreadyAdded);
-            Locations.Add(location);
+            _locations.Add(location);
+            Raise(new LocationAddedToTripEvent(Id, location.Id));
+            return Result.Success();
+        }
+
+        public Result RemoveLocation(Location location)
+        {
+            if (location is null)
+                return Result.Failure(TripErrors.NullLocation);
+            if (!_locations.Contains(location))
+                return Result.Failure(TripErrors.LocationNotFound);
+            _locations.Remove(location);
+            Raise(new LocationRemovedFromTripEvent(Id, location.Id));
+            return Result.Success();
+        }
+
+        public Result UpdateRoute(RouteInfo newRoute)
+        {
+            if (newRoute is null)
+                return Result.Failure(TripErrors.NullRoute);
+            TripRouteInfo = newRoute;
+            Raise(new TripRouteUpdatedEvent(Id, newRoute.OptimizedRoute, newRoute.TotalDistance));
+            return Result.Success();
+        }
+
+        public Result Rename(Name newName)
+        {
+            Name = newName;
+            Raise(new TripRenamedEvent(Id, Name.Text));
             return Result.Success();
         }
     }

@@ -5,7 +5,7 @@ namespace TravelBookManager.Application.Users.Mapper
 {
     public static class UserMapper
     {
-        public static UserDto ToDto(User user)
+        public static UserDto ToDto(this User user)
         {
             return new UserDto(user.Id, user.Name.Text, user.Email.Text, user.Username.Text);
         }
