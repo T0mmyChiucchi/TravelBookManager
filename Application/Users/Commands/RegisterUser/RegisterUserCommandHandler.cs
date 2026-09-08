@@ -22,6 +22,7 @@ namespace TravelBookManager.Application.Users.Commands.RegisterUser
             var passwordResult = Password.Create(request.Password);
             if (passwordResult.IsFailure) return Result<Guid>.ValidationFailure(passwordResult.Error);
             var userResult = User.Create(nameResult.Value, emailResult.Value, usernameResult.Value, passwordResult.Value);
+            if (userResult.IsFailure) return Result.Failure<Guid>(userResult.Error);
             var repoResult = await _repo.AddAsync(userResult.Value);
             return repoResult.IsFailure ? Result.Failure<Guid>(repoResult.Error) : Result.Success(userResult.Value.Id);
         }

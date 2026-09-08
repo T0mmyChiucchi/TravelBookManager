@@ -1,5 +1,4 @@
 using TravelBookManager.SharedKernel;
-using TravelBookManager.Domain.Locations.Errors;
 using TravelBookManager.Domain.Shared.ValueObjects;
 
 namespace TravelBookManager.Domain.Locations
@@ -8,23 +7,19 @@ namespace TravelBookManager.Domain.Locations
 
     public sealed class Location : Entity
     {
-        public string Name { get; set; }
+        public Name Name { get; set; }
         public LocationType Type { get; set; }
-
-        //Value Object
         public Coordinates GeoCoordinates { get; set; }
 
-        private Location(string name, LocationType type, Coordinates coordinates)
+        private Location(Name name, LocationType type, Coordinates coordinates)
         {
             Name = name;
             Type = type;
             GeoCoordinates = coordinates;
         }
 
-        public static Result<Location> Create(string name, LocationType type, double lati, double longi)
+        public static Result<Location> Create(Name name, LocationType type, double lati, double longi)
         {
-            if (string.IsNullOrWhiteSpace(name))
-                return Result<Location>.ValidationFailure(LocationErrors.EmptyName);
             var coordinatesResult = Coordinates.Create(lati, longi);
             if (coordinatesResult.IsFailure)
                 return Result<Location>.ValidationFailure(coordinatesResult.Error);
