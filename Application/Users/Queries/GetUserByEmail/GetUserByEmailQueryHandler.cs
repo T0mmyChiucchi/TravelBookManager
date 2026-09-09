@@ -15,8 +15,7 @@ namespace TravelBookManager.Application.Users.Queries.GetUserByEmail
         public async Task<Result<UserDto>> Handle(GetUserByEmailQuery request, CancellationToken cancellationToken)
         {
             var repoResult = await _repo.GetByEmailAsync(request.Email);
-            if (repoResult.IsFailure) return Result.Failure<UserDto>(repoResult.Error);
-            return Result.Success(UserMapper.ToDto(repoResult.Value));
+            return repoResult.IsFailure ? Result.Failure<UserDto>(repoResult.Error) : Result.Success(repoResult.Value.ToDto());
         }
     }
 }

@@ -15,8 +15,7 @@ namespace TravelBookManager.Application.Users.Queries.GetUserByUsername
         public async Task<Result<UserDto>> Handle(GetUserByUsernameQuery request, CancellationToken cancellationToken)
         {
             var repoResult = await _repo.GetByUsernameAsync(request.Username);
-            if (repoResult.IsFailure) return Result.Failure<UserDto>(repoResult.Error);
-            return Result.Success(UserMapper.ToDto(repoResult.Value));
+            return repoResult.IsFailure ? Result.Failure<UserDto>(repoResult.Error) : Result.Success(repoResult.Value.ToDto());
         }
     }
 }
