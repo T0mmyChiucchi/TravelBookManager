@@ -21,7 +21,7 @@ namespace TravelBookManager.Domain.Trips
             Raise(new TripPlannedEvent(Id, Name.Text));
         }
 
-        public static Result<Trip> Create(Name name) => Result.Success(new Trip(name));
+        public static Trip Create(Name name) => new Trip(name);
 
         public Result AddLocation(Location location)
         {

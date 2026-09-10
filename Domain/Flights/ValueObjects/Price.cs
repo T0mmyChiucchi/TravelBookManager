@@ -1,7 +1,8 @@
 using TravelBookManager.SharedKernel;
 using TravelBookManager.Domain.Shared.Errors;
+using TravelBookManager.Domain.Flights.Errors;
 
-namespace TravelBookManager.Domain.Shared.ValueObjects
+namespace TravelBookManager.Domain.Flights.ValueObjects
 {
     public sealed record Price
     {
@@ -17,10 +18,11 @@ namespace TravelBookManager.Domain.Shared.ValueObjects
         public static Result<Price> Create(string currency, decimal value)
         {
             if (string.IsNullOrWhiteSpace(currency))
-                return Result<Price>.ValidationFailure(ValueObjectsErrors.EmptyCurrency);
+                return Result<Price>.ValidationFailure(FlightErrors.EmptyCurrency);
+            var cleanCurrency = currency.Trim();
             if (value < 0)
-                return Result<Price>.ValidationFailure(ValueObjectsErrors.NegativeValue);
-            return Result.Success(new Price(currency, value));
+                return Result<Price>.ValidationFailure(FlightErrors.NegativeValue);
+            return Result.Success(new Price(cleanCurrency, value));
         }
     }
 }

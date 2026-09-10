@@ -16,9 +16,9 @@ namespace TravelBookManager.Domain.Shared.ValueObjects
 
         public static Result<Coordinates> Create(double lati, double longi)
         {
-            if (lati < -90 || lati > 90)
+            if (!(lati >= -90 && lati <= 90))
                 return Result<Coordinates>.ValidationFailure(ValueObjectsErrors.InvalidLatitude);
-            if (longi < -180 || longi > 180)
+            if (!(longi >= -180 && longi <= 180))
                 return Result<Coordinates>.ValidationFailure(ValueObjectsErrors.InvalidLongitude);
             return Result.Success(new Coordinates(lati, longi));
         }

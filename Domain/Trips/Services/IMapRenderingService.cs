@@ -1,7 +1,4 @@
-using TravelBookManager.Domain.Trips;
-
-
-namespace TravelBookManager.Domain.Shared.Services
+namespace TravelBookManager.Domain.Trips.Services
 {
     public interface IMapRenderingService
     {

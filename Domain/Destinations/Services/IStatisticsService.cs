@@ -1,7 +1,4 @@
-using TravelBookManager.Domain.Destinations;
-
-
-namespace TravelBookManager.Domain.Shared.Services
+namespace TravelBookManager.Domain.Destinations.Services
 {
     public interface IStatisticsService
     {

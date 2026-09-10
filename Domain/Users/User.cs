@@ -25,9 +25,9 @@ namespace TravelBookManager.Domain.Users
             Raise(new UserRegisteredEvent(Id, Email.Text));
         }
 
-        public static Result<User> Create(Name name, Email email, Username username, Password password)
+        public static User Create(Name name, Email email, Username username, Password password)
         {
-            return Result.Success(new User(name, email, username, password));
+            return new User(name, email, username, password);
         }
 
 

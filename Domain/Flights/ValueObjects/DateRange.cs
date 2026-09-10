@@ -1,7 +1,7 @@
 using TravelBookManager.SharedKernel;
-using TravelBookManager.Domain.Shared.Errors;
+using TravelBookManager.Domain.Flights.Errors;
 
-namespace TravelBookManager.Domain.Shared.ValueObjects
+namespace TravelBookManager.Domain.Flights.ValueObjects
 {
     public sealed record DateRange
     {
@@ -17,7 +17,7 @@ namespace TravelBookManager.Domain.Shared.ValueObjects
         public static Result<DateRange> Create(DateTime start, DateTime end)
         {
             if (end < start)
-                return Result<DateRange>.ValidationFailure(ValueObjectsErrors.EndDateBeforeStartDate);
+                return Result<DateRange>.ValidationFailure(FlightErrors.EndDateBeforeStartDate);
             return Result.Success(new DateRange(start, end));
         }
     }

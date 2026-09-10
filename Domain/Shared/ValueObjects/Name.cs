@@ -14,7 +14,7 @@ namespace TravelBookManager.Domain.Shared.ValueObjects
             if (string.IsNullOrWhiteSpace(name))
                 return Result<Name>.ValidationFailure(ValueObjectsErrors.EmptyName);
             var cleanName = name.Trim();
-            if (cleanName.Length > 100)
+            if (cleanName.Length < 2 || cleanName.Length > 100)
                 return Result<Name>.ValidationFailure(ValueObjectsErrors.NameTooLong);
             return Result.Success(new Name(cleanName));
         }

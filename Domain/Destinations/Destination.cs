@@ -1,36 +1,35 @@
 using TravelBookManager.SharedKernel;
-using TravelBookManager.Domain.Destinations.Errors;
 using TravelBookManager.Domain.Shared.ValueObjects;
+using TravelBookManager.Domain.Destinations.ValueObjects;
 
 namespace TravelBookManager.Domain.Destinations
 {
     public sealed class Destination : Entity
     {
-        public Name Name { get; set; }
-        public string Country { get; set; }
-        public double PopularityScore { get; set; }
+        public Name Name { get; private set; }
+        public Country CountryName { get; private set; }
+        public Coordinates GeoCoordinates { get; private set; }
+        public PopularityScore PopularityScore { get; private set; }
 
-        //Value object
-        public Coordinates GeoCoordinates { get; set; }
-
-        private Destination(Name name, string country, Coordinates coordinates, double score)
+        private Destination(Name name, Country countryName, Coordinates geoCoordinates, PopularityScore score)
         {
             Name = name;
-            Country = country;
-            GeoCoordinates = coordinates;
+            CountryName = countryName;
+            GeoCoordinates = geoCoordinates;
             PopularityScore = score;
         }
 
-        public static Result<Destination> Create(Name name, string country, double lati, double longi, double score)
+        public static Destination Create(Name name, Country countryName, Coordinates geoCoordinates, PopularityScore score)
         {
-            if (string.IsNullOrWhiteSpace(country))
-                return Result<Destination>.ValidationFailure(DestinationErrors.EmptyCountry);
-            var coordinatesResult = Coordinates.Create(lati, longi);
-            if (coordinatesResult.IsFailure)
-                return Result<Destination>.ValidationFailure(coordinatesResult.Error);
-            if (score < 0)
-                return Result<Destination>.ValidationFailure(DestinationErrors.NegativePopularity);
-            return Result.Success(new Destination(name, country, coordinatesResult.Value, score));
+            return new Destination(name, countryName, geoCoordinates, score);
         }
+
+        public void ChangeName(Name newName) => Name = newName;
+
+        public void ChangeCountry(Country newCountry) => CountryName = newCountry;
+
+        public void ChangeCoordinates(Coordinates newCoordinates) => GeoCoordinates = newCoordinates;
+
+        public void ChangePopularity(PopularityScore newScore) => PopularityScore = newScore;
     }
 }
