@@ -7,8 +7,7 @@ namespace TravelBookManager.Application.Flights.Mapper
     {
         public static FlightDto ToDto(this Flight entity)
         {
-            // TODO: Ensure mapping matches Domain properties once you finish the Domain part.
-            return new FlightDto(entity.Id, default!, default!, default!, default!, default!, default!, default!); // Placeholder, fix after Domain
+            return new FlightDto(entity.Id, entity.DepartureAirport.AirportName, entity.ArrivalAirport.AirportName, entity.Airline.AirLineName, entity.FlightDateRange.StartDate, entity.FlightDateRange.EndDate, entity.FlightPrice.Currency, entity.FlightPrice.Value);
         }
     }
 }

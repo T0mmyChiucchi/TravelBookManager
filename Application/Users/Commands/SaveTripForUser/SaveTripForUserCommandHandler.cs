@@ -24,8 +24,8 @@ namespace TravelBookManager.Application.Users.Commands.SaveTripForUser
             if (tripResult.IsFailure) return Result.Failure<Guid>(tripResult.Error);
             var addResult = userResult.Value.AddItinerary(tripResult.Value);
             if (addResult.IsFailure) return Result<Guid>.ValidationFailure(addResult.Error);
-            var updateResult = await _userRepo.UpdateAsync(userResult.Value);
-            return updateResult.IsFailure ? Result.Failure<Guid>(updateResult.Error) : Result.Success(request.UserId);
+            var repoUpdateResult = await _userRepo.UpdateAsync(userResult.Value);
+            return repoUpdateResult.IsFailure ? Result.Failure<Guid>(repoUpdateResult.Error) : Result.Success(request.UserId);
         }
     }
 }

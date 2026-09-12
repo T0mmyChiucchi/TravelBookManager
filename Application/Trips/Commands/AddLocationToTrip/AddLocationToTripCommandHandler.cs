@@ -24,8 +24,8 @@ namespace TravelBookManager.Application.Trips.Commands.AddLocationToTrip
             if (locationResult.IsFailure) return Result.Failure<Guid>(locationResult.Error);
             var addResult = tripResult.Value.AddLocation(locationResult.Value);
             if (addResult.IsFailure) return Result<Guid>.ValidationFailure(addResult.Error);
-            var updateResult = await _tripRepo.UpdateAsync(tripResult.Value);
-            return updateResult.IsFailure ? Result.Failure<Guid>(updateResult.Error) : Result.Success(request.TripId);
+            var repoUpdateResult = await _tripRepo.UpdateAsync(tripResult.Value);
+            return repoUpdateResult.IsFailure ? Result.Failure<Guid>(repoUpdateResult.Error) : Result.Success(request.TripId);
         }
     }
 }

@@ -7,8 +7,7 @@ namespace TravelBookManager.Application.Destinations.Mapper
     {
         public static DestinationDto ToDto(this Destination entity)
         {
-            // TODO: Ensure mapping matches Domain properties once you finish the Domain part.
-            return new DestinationDto(entity.Id, default!, default!, default!, default!, default!, default!, default!); // Placeholder, fix after Domain
+            return new DestinationDto(entity.Id, entity.Name.Text, entity.CountryName.CountryName, entity.GeoCoordinates.Latitude, entity.GeoCoordinates.Longitude, entity.PopularityScore.Value);
         }
     }
 }

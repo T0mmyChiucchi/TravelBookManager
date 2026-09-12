@@ -25,8 +25,8 @@ namespace TravelBookManager.Application.Users.Commands.RemoveTripFromUser
             if (tripResult.IsFailure) return Result.Failure<Guid>(tripResult.Error);
             var removeResult = userResult.Value.RemoveItinerary(tripResult.Value);
             if (removeResult.IsFailure) return Result<Guid>.ValidationFailure(removeResult.Error);
-            var updateResult = await _userRepo.UpdateAsync(userResult.Value);
-            return updateResult.IsFailure ? Result.Failure<Guid>(updateResult.Error) : Result.Success(request.UserId);
+            var repoUpdateResult = await _userRepo.UpdateAsync(userResult.Value);
+            return repoUpdateResult.IsFailure ? Result.Failure<Guid>(repoUpdateResult.Error) : Result.Success(request.UserId);
         }
     }
 }

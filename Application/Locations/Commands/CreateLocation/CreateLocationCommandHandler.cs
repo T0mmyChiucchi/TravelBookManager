@@ -14,11 +14,16 @@ namespace TravelBookManager.Application.Locations.Commands.CreateLocation
 
         public async Task<Result<Guid>> Handle(CreateLocationCommand request, CancellationToken cancellationToken)
         {
-            var entityResult = Location.Create(new Name(request.Name), Enum.Parse<LocationType>(request.Type), request.Latitude, request.Longitude);
-            if (entityResult.IsFailure) return Result.Failure<Guid>(entityResult.Error);
+            var nameResult = Name.Create(request.Name);
+            if (nameResult.IsFailure) return Result.Failure<Guid>(nameResult.Error);
 
-            var addResult = await _repo.AddAsync(entityResult.Value);
-            return addResult.IsFailure ? Result.Failure<Guid>(addResult.Error) : Result.Success(entityResult.Value.Id);
+            var coordResult = Coordinates.Create(request.Latitude, request.Longitude);
+            if (coordResult.IsFailure) return Result.Failure<Guid>(coordResult.Error);
+
+            var type = Enum.Parse<LocationType>(request.Type);
+            var entity = Location.Create(nameResult.Value, type, coordResult.Value);
+            var addResult = await _repo.AddAsync(entity);
+            return addResult.IsFailure ? Result.Failure<Guid>(addResult.Error) : Result.Success(entity.Id);
         }
     }
 }
