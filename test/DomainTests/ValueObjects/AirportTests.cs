@@ -9,14 +9,14 @@ namespace DomainTests.ValueObjects
         [Fact]
         public void When_AirportIsValid_ReturnsSuccess()
         {
-            var result = Airport.Create("Fiumicino", "FCO");
+            var result = Airport.Create("Fiumicino");
             Assert.True(result.IsSuccess);
         }
 
         [Fact]
         public void When_AirportEmpty_ReturnsError()
         {
-            var result = Airport.Create("", "FCO");
+            var result = Airport.Create("");
             Assert.False(result.IsSuccess);
             Assert.Equal(FlightErrors.EmptyAirport, result.Error);
         }

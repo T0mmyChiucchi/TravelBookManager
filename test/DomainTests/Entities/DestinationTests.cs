@@ -1,7 +1,6 @@
 using TravelBookManager.Domain.Destinations;
 using TravelBookManager.Domain.Destinations.ValueObjects;
 using TravelBookManager.Domain.Shared.ValueObjects;
-using Xunit;
 
 namespace DomainTests.Entities
 {
@@ -14,9 +13,9 @@ namespace DomainTests.Entities
             var country = Country.Create("Italy").Value;
             var coords = Coordinates.Create(41.9028, 12.4964).Value;
             var score = PopularityScore.Create(95).Value;
-            
+
             var dest = Destination.Create(name, country, coords, score);
-            
+
             Assert.Equal("Roma", dest.Name.Text);
             Assert.Equal("Italy", dest.CountryName.Name);
             Assert.Equal(95, dest.PopularityScore.Value);
@@ -30,7 +29,7 @@ namespace DomainTests.Entities
             var coords = Coordinates.Create(41.9028, 12.4964).Value;
             var score = PopularityScore.Create(95).Value;
             var dest = Destination.Create(name, country, coords, score);
-            
+
             var newCoords = Coordinates.Create(45.4642, 9.1900).Value;
             dest.ChangeCoordinates(newCoords);
             Assert.Equal(45.4642, dest.GeoCoordinates.Latitude);

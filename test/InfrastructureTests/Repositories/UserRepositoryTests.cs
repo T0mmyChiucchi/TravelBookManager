@@ -4,7 +4,6 @@ using TravelBookManager.Domain.Users.ValueObjects;
 using TravelBookManager.Domain.Shared.ValueObjects;
 using TravelBookManager.Infrastructure.Database;
 using TravelBookManager.Infrastructure.Database.Repositories;
-using Xunit;
 
 namespace InfrastructureTests.Repositories
 {
@@ -23,16 +22,16 @@ namespace InfrastructureTests.Repositories
         {
             var context = GetDbContext();
             var repo = new UserRepository(context);
-            
+
             var name = Name.Create("Mario Rossi").Value;
             var email = Email.Create("mario@rossi.com").Value;
             var username = Username.Create("mariorossi").Value;
             var password = Password.Create("Pass123!").Value;
-            
+
             var user = User.Create(name, email, username, password);
-            
+
             await repo.AddAsync(user);
-            
+
             var retrievedResult = await repo.GetByIdAsync(user.Id);
             Assert.True(retrievedResult.IsSuccess);
             Assert.Equal("mario@rossi.com", retrievedResult.Value.Email.Text);

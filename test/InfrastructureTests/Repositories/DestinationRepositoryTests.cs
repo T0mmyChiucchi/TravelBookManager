@@ -4,9 +4,6 @@ using TravelBookManager.Domain.Destinations.ValueObjects;
 using TravelBookManager.Domain.Shared.ValueObjects;
 using TravelBookManager.Infrastructure.Database;
 using TravelBookManager.Infrastructure.Database.Repositories;
-using Xunit;
-using System.Threading.Tasks;
-using System;
 
 namespace InfrastructureTests.Repositories
 {
@@ -25,15 +22,15 @@ namespace InfrastructureTests.Repositories
         {
             var context = GetDbContext();
             var repo = new DestinationRepository(context);
-            
+
             var name = Name.Create("Roma").Value;
             var country = Country.Create("Italy").Value;
             var coords = Coordinates.Create(41.9, 12.4).Value;
             var score = PopularityScore.Create(9).Value;
-            
+
             var dest = Destination.Create(name, country, coords, score);
             await repo.AddAsync(dest);
-            
+
             var retrieved = await repo.GetByIdAsync(dest.Id);
             Assert.True(retrieved.IsSuccess);
             Assert.Equal("Roma", retrieved.Value.Name.Text);

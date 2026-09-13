@@ -18,7 +18,7 @@ namespace DomainTests.ValueObjects
         {
             var result = PopularityScore.Create(105);
             Assert.False(result.IsSuccess);
-            Assert.Equal(DestinationErrors.InvalidPopularityScore, result.Error);
+            Assert.Equal(DestinationErrors.NegativePopularity, result.Error);
         }
     }
 }
