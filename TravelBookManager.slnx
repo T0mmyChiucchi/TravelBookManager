@@ -1,17 +1,20 @@
 <Solution>
-  <Folder Name="/Application/">
-    <Project Path="Application/TravelBookManager.Application.csproj" />
+  <Folder Name="/src/Application/">
+    <Project Path="src/Application/TravelBookManager.Application.csproj" />
   </Folder>
-  <Folder Name="/Domain/">
-    <Project Path="Domain/TravelBookManager.Domain.csproj" />
+  <Folder Name="/src/Domain/">
+    <Project Path="src/Domain/TravelBookManager.Domain.csproj" />
   </Folder>
-  <Folder Name="/Infrastructure/">
-    <Project Path="Infrastructure/TravelBookManager.Infrastructure.csproj" />
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="src/Infrastructure/TravelBookManager.Infrastructure.csproj" />
   </Folder>
-  <Folder Name="/Presentation/">
-    <Project Path="Presentation/TravelBookManager.Presentation.csproj" />
+  <Folder Name="/src/Presentation/">
+    <Project Path="src/Presentation/TravelBookManager.Presentation.csproj" />
   </Folder>
-  <Folder Name="/SharedKernel/">
-    <Project Path="SharedKernel/TravelBookManager.SharedKernel.csproj" />
+  <Folder Name="/src/SharedKernel/">
+    <Project Path="src/SharedKernel/TravelBookManager.SharedKernel.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/TravelBookManager.Domain.UnitTest/TravelBookManager.Domain.UnitTest.csproj" />
   </Folder>
 </Solution>

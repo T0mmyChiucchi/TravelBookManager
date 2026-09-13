@@ -7,7 +7,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "${workspaceFolder}/src/Presentation/TravelBookManager.Presentation.csproj",
         "-f", "net10.0-android",
         "-c", "Debug"
       ],
@@ -21,7 +21,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "${workspaceFolder}/src/Presentation/TravelBookManager.Presentation.csproj",
         "-f", "net10.0-ios",
         "-c", "Debug"
       ],
@@ -35,7 +35,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "${workspaceFolder}/src/Presentation/TravelBookManager.Presentation.csproj",
         "-f", "net10.0-maccatalyst",
         "-c", "Debug"
       ],
@@ -49,7 +49,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "${workspaceFolder}/src/Presentation/TravelBookManager.Presentation.csproj",
         "-f", "net10.0-windows10.0.19041.0",
         "-c", "Debug"
       ],
@@ -63,7 +63,7 @@
       "type": "process",
       "args": [
         "publish",
-        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "${workspaceFolder}/src/Presentation/TravelBookManager.Presentation.csproj",
         "-f", "net10.0-android",
         "-c", "Release"
       ],
@@ -76,7 +76,7 @@
       "type": "process",
       "args": [
         "publish",
-        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "${workspaceFolder}/src/Presentation/TravelBookManager.Presentation.csproj",
         "-f", "net10.0-ios",
         "-c", "Release"
       ],
@@ -89,7 +89,7 @@
       "type": "process",
       "args": [
         "publish",
-        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "${workspaceFolder}/src/Presentation/TravelBookManager.Presentation.csproj",
         "-f", "net10.0-maccatalyst",
         "-c", "Release"
       ],
@@ -126,7 +126,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/Presentation/TravelBookManager.Presentation.csproj",
+        "${workspaceFolder}/src/Presentation/TravelBookManager.Presentation.csproj",
         "-f", "net10.0-android",
         "-t:InstallAndroidDependencies",
         "-p:AndroidSdkDirectory=${env:HOME}/Library/Developer/Xamarin/android-sdk-macosx",
