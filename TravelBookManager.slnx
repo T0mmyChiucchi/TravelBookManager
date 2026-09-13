@@ -1,4 +1,5 @@
 <Solution>
+  <Folder Name="/src/" />
   <Folder Name="/src/Application/">
     <Project Path="src/Application/TravelBookManager.Application.csproj" />
   </Folder>
@@ -15,6 +16,8 @@
     <Project Path="src/SharedKernel/TravelBookManager.SharedKernel.csproj" />
   </Folder>
   <Folder Name="/test/">
-    <Project Path="test/TravelBookManager.Domain.UnitTest/TravelBookManager.Domain.UnitTest.csproj" />
+    <Project Path="test/ApplicationTests/ApplicationTests.csproj" />
+    <Project Path="test/DomainTests/DomainTests.csproj" />
+    <Project Path="test/InfrastructureTests/InfrastructureTests.csproj" />
   </Folder>
 </Solution>

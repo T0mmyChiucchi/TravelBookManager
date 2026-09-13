@@ -3,7 +3,7 @@ using TravelBookManager.Domain.Shared.Errors;
 using TravelBookManager.SharedKernel;
 using Xunit;
 
-namespace TravelBookManager.Domain.UnitTest.ValueObjects
+namespace DomainTests.ValueObjects
 {
     public class CoordinatesTests
     {

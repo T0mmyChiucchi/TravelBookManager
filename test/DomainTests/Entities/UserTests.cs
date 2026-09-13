@@ -4,7 +4,7 @@ using TravelBookManager.Domain.Users.ValueObjects;
 using TravelBookManager.Domain.Shared.ValueObjects;
 using Xunit;
 
-namespace TravelBookManager.Domain.UnitTest.Entities
+namespace DomainTests.Entities
 {
     public class UserTests
     {
@@ -15,7 +15,7 @@ namespace TravelBookManager.Domain.UnitTest.Entities
             var email = Email.Create("mario@rossi.com").Value;
             var username = Username.Create("mariorossi").Value;
             var password = Password.Create("Password123!").Value;
-            
+
             var user = User.Create(name, email, username, password);
             var newEmail = Email.Create("nuova@email.com").Value;
 
@@ -32,10 +32,10 @@ namespace TravelBookManager.Domain.UnitTest.Entities
             var email = Email.Create("mario@rossi.com").Value;
             var username = Username.Create("mariorossi").Value;
             var password = Password.Create("Password123!").Value;
-            
+
             var user = User.Create(name, email, username, password);
 
-            var result = user.AddItinerary(null);
+            var result = user.AddItinerary(null!);
 
             Assert.False(result.IsSuccess);
             Assert.Equal(UserErrors.NullTrip, result.Error);
